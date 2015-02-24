@@ -4,18 +4,18 @@ markdown: redcarpet
 
 # 作者信息
 author: 
-  name: Anya Lin
-  email: lay.1010@hotmail.com
-  link: http://painterlin.com
+  name:  Lixuan Liang
+  email: llx1105@gmail.com
+  link: http://llx1105.github.com
   weibo: http://weibo.com/orangeissweet
   github: http://github.com/lay1010
   music: http://site.douban.com/linanya
   linkedin: https://www.linkedin.com/pub/anya-lin/81/91/232
 
 # 站点信息
-title: 林安亚的博客
+title: 哟,力轩
 description: My personal blog
-url: http://painterlin.com
+url: http://llx1105.github.com
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
@@ -29,7 +29,7 @@ ga:
 
 # disqus 设置
 disqus:
-  shortname: painterlin
+  shortname: llx1105
 
 # 主题设置，自动激活某个标签
 active: 读书
