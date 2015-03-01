@@ -17,8 +17,8 @@ url: http://llx1105.github.com
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
-gavatar: /public/img/dog.png
-favicon: /public/img/dog.png
+gavatar: /public/img/dog.jpg
+favicon: /public/img/dog.jpg
 
 # google analytics 设置
 ga:
