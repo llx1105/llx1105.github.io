@@ -1,6 +1,6 @@
 ---
 layout: post
-title: redis集合笔记
+title: rails console
 category: 技术
 tags:
 keywords: console
@@ -11,7 +11,7 @@ Rails console是Rails开发者的忠实小伙伴，对开发的帮助很大，�
 
 
 
-## 执行数据库操作：
+## 1. 执行数据库操作：
 可以在console里执行各种对数据库的操作，Rails的activerecord提供了各种方法给你使用，具体的就不在这里介绍了。
 这里我们在操作时，经常会出现大量的sql语句，有时候我们并不想让他们出现，怎么办呢?
 
@@ -20,11 +20,11 @@ ActiveRecord::Base.logger = Rails.logger
 想要再次打开可以这样：
 ActiveRecord::Base.logger = Logger.new STDOUT 
 
-## 模拟controller，helper请求
+## 2. 模拟controller，helper请求
 刚开始学习Rails的时候（其实这段时间还挺长的），遇到controller或者helper里的方法就比较无能为力了，不知道怎么调试，遇到短的还可以复制下来手动的执行，但是遇到长一点的方法这么做就很麻烦了，浪费了不少时间。
 其实调试controller和helper也很简单，下面简单说一下：
 
-### controller 调试
+### 1)controller 调试
 假设我们有个controller叫做BookController，里面有个实例方法show，我们可以:
 
 ```
@@ -46,7 +46,7 @@ ActiveRecord::Base.logger = Logger.new STDOUT
 初学ruby的时候也经常搞不清这几者的区别，导致遇到很多问题。。
 
 
-### helper 调试
+### 2)helper 调试
 有时候我们需要调试helper里的方法:
 也很简单，我们只用helper.method_name就可以了
 
@@ -71,10 +71,10 @@ ActiveRecord::Base.logger = Logger.new STDOUT
 利用OpenStruct就可以轻松实现了。
 
 
-## app
+## 3.app
 app本质是调用session()并且创建一个ActionDispatch::Integration::Session。
 
-### 查看路径：
+### 1)查看路径：
 
 调用routes的helper：
 
@@ -83,7 +83,7 @@ app本质是调用session()并且创建一个ActionDispatch::Integration::Sessio
  => "/cn/o/bd"
 ```
 
-### 发起请求： app.get(path, parameters = nil, headers = nil), 同样适用于post,put等
+### 2)发起请求： app.get(path, parameters = nil, headers = nil), 同样适用于post,put等
 
 
 ```
@@ -93,7 +93,7 @@ app本质是调用session()并且创建一个ActionDispatch::Integration::Sessio
 这里会返回请求 o_deals_path 路由后的执行日志以及状态码。
 然后通过 app.response.header 和 app.response.body 可以看到上次请求的返回头和结果。
 
-## --sandbox参数
+## 4.--sandbox参数
 
 有时候我们在console里构造数据的时候并不想影响到原来的数据，这时候我们可以在启动console的时候 加上--sandbox ，这样在我们退出console时会回滚console中的数据库操作，会非常有用。
 
@@ -105,7 +105,7 @@ Any modifications you make will be rolled back on exit
 2.1.1 :001 > 
 ```
 
-## _
+## 5. _方法
 
 _ 返回上次表达式执行的结果
 
