@@ -106,8 +106,12 @@ Any modifications you make will be rolled back on exit
 ```
 
 ## 5. _方法
-
 _ 返回上次表达式执行的结果
+## 6. 查找方法位置
+比如 我们有一个 model User
+User.first.method(:method_name).source_location
+这样就可以查找到方法的位置了,有时候会非常有用。
+
 
 
 
