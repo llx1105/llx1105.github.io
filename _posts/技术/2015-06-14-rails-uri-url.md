@@ -1,6 +1,6 @@
 ---
 layout: post
-title: url与uri
+title: URL与URI
 category: 技术
 tags:
 keywords: uri url
@@ -45,24 +45,24 @@ ruby中提供了方法将url直接转换成uri
 
 ```
 2.1.1 :002 > uri = URI('http://llx1105.github.io/2015/05/21/redis-sort-01.html')
- => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html> 
+ => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html>
 2.1.1 :005 > uri.scheme
- => "http" 
+ => "http"
 2.1.1 :006 > uri.host
- => "llx1105.github.io" 
+ => "llx1105.github.io"
 2.1.1 :007 > uri.path
- => "/2015/05/21/redis-sort-01.html" 
+ => "/2015/05/21/redis-sort-01.html"
 2.1.1 :008 > uri.query
- => nil 
+ => nil
 
 2.1.1 :009 > uri.query = {page: 5}.to_query
- => "page=5" 
+ => "page=5"
 2.1.1 :010 > uri
- => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5> 
+ => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5>
 2.1.1 :011 > uri.query
- => "page=5" 
+ => "page=5"
 2.1.1 :013 > url = uri.to_s
- => "http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5" 
+ => "http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5"
 ```
 
 在coding时经常会遇到参数的改动，通过uri可以方便的修改参数，最后uri.to_s即可得到url。
