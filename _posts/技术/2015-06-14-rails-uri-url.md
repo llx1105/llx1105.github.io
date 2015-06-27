@@ -1,6 +1,6 @@
 ---
 layout: post
-title: url与uri
+title: URL与URI
 category: 技术
 tags:
 keywords: uri url
@@ -18,8 +18,11 @@ URL (uniform resource location )统一资源定位符（或统一资源定位器
 URL的格式由下列三部分组成：
 
  1.协议（或称为服务方式）；
+
  2.存有该资源的主机IP地址（有时也包括端口号）；
- 3.主机资源的具体地址。如目录和文件名等。
+
+ 3.主机资源的具体地址,如目录和文件名等。
+
 
 
  第一部分和第二部分之间用”：//”符号隔开，第二部分和第三部分用”/”符号隔开。第一部分和第二部分是不可缺少的，第三部分有时可以省略。
@@ -30,33 +33,38 @@ URL的格式由下列三部分组成：
 ## 2. URI
  URI是一个相对来说更广泛的概念，URL是URI的一种，是URI命名机制的一个子集，可以说URI是抽象的，而具体要使用URL来定位资源。
  URI是以某种统一的（标准化的）方式标识资源的简单字符串，一般由三部分组成：
+
  1.访问资源的命名机制。
+
  2.存放资源的主机名。
+
  3.资源自身的名称，由路径表示。
 
 　
 ruby中提供了方法将url直接转换成uri
+
 ```
 2.1.1 :002 > uri = URI('http://llx1105.github.io/2015/05/21/redis-sort-01.html')
- => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html> 
+ => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html>
 2.1.1 :005 > uri.scheme
- => "http" 
+ => "http"
 2.1.1 :006 > uri.host
- => "llx1105.github.io" 
+ => "llx1105.github.io"
 2.1.1 :007 > uri.path
- => "/2015/05/21/redis-sort-01.html" 
+ => "/2015/05/21/redis-sort-01.html"
 2.1.1 :008 > uri.query
- => nil 
+ => nil
 
 2.1.1 :009 > uri.query = {page: 5}.to_query
- => "page=5" 
+ => "page=5"
 2.1.1 :010 > uri
- => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5> 
+ => #<URI::HTTP:0x00000006afe348 URL:http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5>
 2.1.1 :011 > uri.query
- => "page=5" 
+ => "page=5"
 2.1.1 :013 > url = uri.to_s
- => "http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5" 
+ => "http://llx1105.github.io/2015/05/21/redis-sort-01.html?page=5"
 ```
+
 在coding时经常会遇到参数的改动，通过uri可以方便的修改参数，最后uri.to_s即可得到url。
 
 
