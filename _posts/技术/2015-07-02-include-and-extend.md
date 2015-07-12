@@ -4,6 +4,7 @@ title: include 和 extend的区别
 category: 技术
 tags:
 keywords: include extend
+---
 
 include 和 extend 可以让我们把公共的方法提出去，从而使代码更简化，更加面向对象。这俩者最基本的区别就是：
 
