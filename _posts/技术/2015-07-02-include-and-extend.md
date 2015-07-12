@@ -33,7 +33,13 @@ ClassThatIncludes.new.module_method       # "Module Method: Hi there!"
 ClassThatExtends.module_method            # "Module Method: Hi there!"
 
 ```
+注意 include后只能接Module，如果直接include一个路径是不行的，会报这个错：
 
+```
+wrong argument type String (expected Module) (TypeError)
+```
+
+所以引用前需要将常量的文件先require进来，extend同理。
 
 
 这是最基本的区别吧。

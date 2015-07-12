@@ -1,0 +1,7 @@
+!.gitignore
+/tags
+*.swp
+*.swo
+*.swn
+Gemfile.lock
+/tmp
