@@ -44,4 +44,28 @@ wrong argument type String (expected Module) (TypeError)
 
 这是最基本的区别吧。
 
+但通常情况下，一般我们通过一条include的语句想把module中的实例方法和类方法都引用过来。这时我们需要在module中定义一个included的钩子方法来处理module中定义的类方法。例如：
+
+```
+module A
+  def self.included(base)
+   base.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def class_methods
+      p 'this is class methods'
+    end
+  end
+end
+
+B.class_methods
+"this is class methods"
+```
+
+rails中通过一个叫做ActiveSupport::Concern的模块可以将module中的类方法帮我们处理
+rails中通过在module中嵌套一个叫做ClassMethods的模块自动将其内定义的方法转化为类的方法。
+当然，我们也可以采用自己写钩子方法的方式处理关于该问题。
+
+
 to be continued ..
