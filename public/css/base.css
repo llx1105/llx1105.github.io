@@ -7,7 +7,7 @@ body, html {
   margin: 0px;
   height: 100%;
   overflow: hidden; 
-  background-color: #F0FFFF;
+  background-color: #003366; /*左侧上方空白*/
 }
 .row {
   height: 100%;
