@@ -86,13 +86,13 @@ body, html {
   /*background-image: url(/public/img/bg_lines1.jpg);*/
 }
 .aside3-title {
-  background-color: #006699;
+  background-color: #006699; /*右上角标题背景色*/
   /*background-image: url(/public/img/bg_grid.jpg);*/
   border-bottom: 1px solid #f5f5f5;
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;
-  color: #303030;
+  color: #F0FFF0;
 }
 .aside3-content {
   padding-left: 40px;
