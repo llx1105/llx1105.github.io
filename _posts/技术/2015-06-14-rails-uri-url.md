@@ -2,7 +2,7 @@
 layout: post
 title: URL与URI
 category: 技术
-tags:
+tags: tech
 keywords: uri url
 description: url与uri
 ---

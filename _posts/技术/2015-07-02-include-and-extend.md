@@ -2,7 +2,7 @@
 layout: post
 title: include 和 extend的区别
 category: 技术
-tags:
+tags: tech
 keywords: include extend
 ---
 

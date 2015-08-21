@@ -2,7 +2,7 @@
 layout: post
 title: rails console
 category: 技术
-tags:
+tags: ruby
 keywords: console
 description: console调试小技巧
 ---

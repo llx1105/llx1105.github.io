@@ -2,7 +2,7 @@
 layout: post
 title: 博客搭建
 category: 感悟
-tags:
+tags: life
 keywords:
 description:
 ---
