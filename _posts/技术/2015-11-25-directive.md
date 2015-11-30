@@ -12,7 +12,7 @@ keywords: Angularjs
 在很大程度上得益于它拥有大量的内置的指令，也能通过语法去自定义指令去去实现自带指令所没有覆盖的地方。可以说指令是开发Angular应用
 时一个非常重要的工具，尤其是自定义的指令。
 
-  从字面意义来说，directive是一种执行的信号，一旦发布了这个指令，就要执行某项动作。比如在HTML中，书写一个<a>标记，实质上也是一个指令，
+  从字面意义来说，directive是一种执行的信号，一旦发布了这个指令，就要执行某项动作。比如在HTML中，书写一个a标记，实质上也是一个指令，
 告知浏览器要创建一个超链接。在Angular中，指令要复杂许多，它不仅要创建元素，还要给元素附加一些特定的行为，可以理解Angular的指令是一个
 在特定的DOM元素上执行的函数，即对DOM的操作。
 
@@ -30,10 +30,10 @@ keywords: Angularjs
  </body>
 
  app.directive('hello',function(){
- return {
- restrict: 'EAC',
- template: '<h3>hello,angular</h3>',
- }
+  return {
+   restrict: 'EAC',
+   template: '<h3>hello,angular</h3>',
+   }
  })
 
 ```
@@ -41,18 +41,24 @@ keywords: Angularjs
   上面是一个简单的例子，名字叫做hello，命名时为了避免与原生指令冲突，我们不要使用ng开头的作为名字。directive方法的第二个参数是一个函数，
 该函数返回一个对象，在对象中，设置指令需要执行的全部动作
 
-####属性
-  在这个例子中添加了两个简单的属性，其中
-  restrict: 属性指出在HTML中得使用方式，共有E 标签，A 属性，C class，M 注释（不常用）等四种，属性值可以是单个也可以多个字母组合，该属性的默认值是A。
+####directive属性
 
-#####template: 表示指令在编译和链接后生成的HTML标记，可以是string，可以是复杂的字符集合，还可以是包含大括号，动态获取变量的值。如果是一个内容模板，则可以将template
+在这个例子中添加了两个简单的属性，其中
+######restrict
+  该属性指出在HTML中得使用方式，共有E 标签，A 属性，C class，M 注释（不常用）等四种，属性值可以是单个也可以多个字母组合，该属性的默认值是A。
+
+#####template
+  表示指令在编译和链接后生成的HTML标记，可以是string，可以是复杂的字符集合，还可以是包含大括号，动态获取变量的值。如果是一个内容模板，则可以将template
 属性改为templateUrl。
 
-#####replace: 属性为布尔类型，默认值为false，为true时表示将模板中得内容替换为指令内标记,此时，无论指令标记中是否存在内容，都将被清空；当属性值为false时，表示不替换指令标记，而是将内容插入到指令标记中。
+#####replace
+  属性为布尔类型，默认值为false，为true时表示将模板中得内容替换为指令内标记,此时，无论指令标记中是否存在内容，都将被清空；当属性值为false时，表示不替换指令标记，而是将内容插入到指令标记中。
 
-#####templateUrl: 属性的值是一个URL地址，该地址将指向一个模板页面，该属性与template属性不能同时使用，只能取其中之一。
+#####templateUrl
+  属性的值是一个URL地址，该地址将指向一个模板页面，该属性与template属性不能同时使用，只能取其中之一。
 
-#####transclude: 布尔值，默认为false，设置为true时则开启了该属性，当开启了transclude属性后，就可以在模板中通过ng-transclude方式替换指令元素中得内容。我们可以将整个模板，包括其中的指令通过嵌入式全部传入一个指令中。这样做可以将任意内容和作用域传递给指令。
+#####transclude
+  布尔值，默认为false，设置为true时则开启了该属性，当开启了transclude属性后，就可以在模板中通过ng-transclude方式替换指令元素中得内容。我们可以将整个模板，包括其中的指令通过嵌入式全部传入一个指令中。这样做可以将任意内容和作用域传递给指令。
 
   假设我们有这样一段代码:
 
@@ -63,7 +69,7 @@ keywords: Angularjs
   </div>
 
   ```
-  然后不同的directive的内容会有不同的结果，当directive如下时：
+  然后不同的directive的内容会有不同的结果，当directive如下没有添加transclude时：
 
   ```
   app.directive('myDirective', function(){
@@ -101,11 +107,13 @@ keywords: Angularjs
       <button class="ng-scope">some button</button>
       <a href="#" class="ng-scope">and a link</a>
   </div></div>
-
   ```
 
+  以上的例子可以很好地理解transclude的作用。
 
-#####link: link属性的值是一个函数，在该函数中可以操控DOM元素对象，包括绑定元素的各类事件，定义事件触发时执行的内容，函数定义的代码如下：
+
+#####link
+  link属性的值是一个函数，在该函数中可以操控DOM元素对象，包括绑定元素的各类事件，定义事件触发时执行的内容，函数定义的代码如下：
 
 ```
   link:function(scope, iEle, iAttrs){
