@@ -125,25 +125,62 @@ keywords: Angularjs
 link函数包含3个主要参数，其中scope表示指令所在的作用域，它的功能与页面中控制器注入的作用域是相同的，iEle参数表示指令中的元素，该元素可以通过Angular内部封装的jqLite
 框架进行调用，语法与jQuery相同。此外，iAtrrs参数表示指令元素的属性集合，通过这个参数可以获取元素中得各类属性。
 
+###compile
+  这个属性使用的没有link那么多，该属性返回一个函数或者对象，当返回一个函数时，该函数的名称为post，而当返回一个对象时，对象中则包含两个名为 pre 和 post的方法函数。当添加compile属性后就不能添加link属性了，因为其实无论compile属性返回的是一个函数还是一个对象，实际上都创建了一个名为post的链接函数。因此在编译过程中会自动忽略其他的链接函数。
+  下面有个例子让我们更好地理解compile函数的执行顺序。
 
+```
+<div id="test">
+  <ts-a>
+    <ts-a>
+    </ts-b>
+  </ts-b>
+</div>
 
+.directive('tsA',function(){
+  return {
+    restrict: 'EAC',
+    compile: function (ele,attrs, trans) {
+     console.log('正在编译A指令');
+       return {
+        pre: function (scope, ele, attrs){
+         console.log('正在执行A指令中的pre函数');
+        },
+        post: function (scope, ele, attrs){
+         console.log('正在执行A指令中的post函数');
+        },
+       }
+    }
+  }
+}
+.directive('tsB',function(){
+  return {
+    restrict: 'EAC',
+    compile: function (ele,attrs, trans) {
+     console.log('正在编译B指令');
+       return {
+        pre: function (scope, ele, attrs){
+         console.log('正在执行B指令中的pre函数');
+        },
+        post: function (scope, ele, attrs){
+         console.log('正在执行B指令中的post函数');
+        },
+       }
+    }
+  }
+})
 
+)
 
+```
 
+最终打出的日志会是：
 
+正在编译A指令
+正在编译B指令
+正在执行A指令中的pre函数
+正在执行B指令中的pre函数
+正在执行B指令中的post函数
+正在执行A指令中的post函数
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+to be continued...
