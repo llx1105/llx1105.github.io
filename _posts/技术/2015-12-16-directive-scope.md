@@ -17,7 +17,7 @@ keywords: Angularjs
    当想要写一个可重复使用的 directive，不能再依赖父 scope，这时候就需要使用隔离 scope 代替。共享 scope 可以直接共享父 scope，而隔离 scope 无法共享父scope。下图解释了共享 scope 和隔离 scope 的区别：
 
 
-![1](/public/img/posts/scope.jpg)
+![1](/public/img/posts/scope.png)
 
 例子：
 
