@@ -56,6 +56,7 @@ Say:hello world
 使用隔离 scope 的时候，无法从父 scope 中共享属性。因此下面示例无法输出父 scope 中定义的 name 属性值。
 
 js代码：
+
 ```
 app.controller("myController", function ($scope) {
   $scope.name = "hello world";
