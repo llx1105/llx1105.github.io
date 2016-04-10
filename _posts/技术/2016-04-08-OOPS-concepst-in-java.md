@@ -56,3 +56,20 @@ Boy is eating
   4. 重写的方法的绑定发生在run-time,即 dynamic binding。
   5. 如果一个类继承或者实现的abstract 或者interface 那么必须重写所有的方法，除非它自己是一个abstract class。
   6. super 调用父方法。
+
+##Difference between method Overloading and Overriding in java
+
+###动态绑定和静态绑定
+  在Java中，当你调用一个方法时，可能会在编译时期（compile time）解析（resolve），也可能实在运行时期（runtime）解析，这全取决于到底是一个静态方法（static method）还是一个虚方法（virtual method）。
+如果是在编译时期解析，那么就称之为静态绑定（static binding），如果方法的调用是在运行时期解析，那就是动态绑定（dynamic binding）或者延迟绑定（late binding）。
+Java是一门面向对象的编程语言，优势就在于支持多态（Polymorphism）。
+多态使得父类型的引用变量可以引用子类型的对象。如果调用子类型对象的一个虚方法（非private,final or static），编译器将无法找到真正需要调用的方法，因为它可能是定义在父类型中的方法，也可能是在子类型中被重写（override）的方法，这种情形，只能在运行时进行解析，因为只有在运行时期，才能明确具体的对象到底是什么。
+  这也是我们俗称的运行时或动态绑定（runtime or dynamic binding）。另一方面，private static和final方法将在编译时解析，因为编译器知道它们不能被重写，所有可能的方法都被定义在了一个类中，这些方法只能通过此类的引用变量进行调用。
+  这叫做静态绑定或编译时绑定（static or compile time binding）。所有的private,static和final方法都通过静态绑定进行解析。这两个概念的关系，与“方法重载”（overloading，静态绑定）和“方法重写”（overriding，动态绑定）类似。动态绑定只有在重写可能存在时才会用到，而重载的方法在编译时期即可确定（这是因为它们总是定义在同一个类里面）
+
+Overloading vs Overriding in Java：
+1. 重载发生在编译期而重写发生在运行期.重载是静态绑定的而重写是动态绑定，可以说重写实现了多态。
+2. static 方法可以被重载，意味着一个类可以拥有多个相同名字的静态方法，但是静态方法并不能被重写，虽然形式上可以重写，但是然并卵。
+3. 重载是在同一个类中，而重写发生在子类。2. static 方法可以被重载，意味着一个类可以拥有多个相同名字的静态方法，但是静态方法并不能被重写，虽然形式上可以重写，但是然并卵。
+4. private和final methods可以被重载但是不能被重写。
+
