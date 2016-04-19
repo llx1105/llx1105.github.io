@@ -70,6 +70,42 @@ Java是一门面向对象的编程语言，优势就在于支持多态（Polymor
 Overloading vs Overriding in Java：
 1. 重载发生在编译期而重写发生在运行期.重载是静态绑定的而重写是动态绑定，可以说重写实现了多态。
 2. static 方法可以被重载，意味着一个类可以拥有多个相同名字的静态方法，但是静态方法并不能被重写，虽然形式上可以重写，但是然并卵。
-3. 重载是在同一个类中，而重写发生在子类。2. static 方法可以被重载，意味着一个类可以拥有多个相同名字的静态方法，但是静态方法并不能被重写，虽然形式上可以重写，但是然并卵。
+3. 重载是在同一个类中，而重写发生在子类。
 4. private和final methods可以被重载但是不能被重写。
 
+##Constructors
+构造方法是一个比较特殊的方法，它没有返回类型，在new 一个对象的时候会调用，如果你没有定义，会调用一个默认的午参构造方法。
+需要注意的一点是，如果你定义了一个构造方法，系统是不会再给你定义默认的构造方法了，像下面这样是会报错的：
+
+```
+package beginnersbook.com;
+public class Demo
+{
+  private int rollNum;
+  We are not defining a no-arg constructor here
+
+    Demo(int rnum)
+    {
+      rollNum = rollNum+ rnum;
+    }
+  //Getter and Setter methods
+}
+class TestDemo{
+  public static void main(String args[])
+  {
+    //This statement would call no-arg constructor
+    Demo obj = new Demo();
+  }
+}
+```
+output:
+
+```
+Exception in thread "main" java.lang.Error: Unresolved compilation 
+problem:The constructor Demo() is undefined
+```
+
+另外，构造方法只能重载，不能重写，因为子类怎么重写，名字都不一样了。
+interface没有构造方法。
+
+##private constructor
