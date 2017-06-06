@@ -25,7 +25,7 @@ keywords: Angularjs
 
 共享 scope
 
-使用共享 scope 的时候，可以直接从父 scope 中共享属性。因此下面示例可以将那么属性的值输出出来。使用的是父 scope 中定义的值。
+使用共享 scope 的时候，可以直接从父 scope 中共享属性。因此下面示例可以将name属性的值输出出来。使用的是父 scope 中定义的值。
 
 js代码：
 
