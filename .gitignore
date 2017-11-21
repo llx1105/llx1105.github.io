@@ -1,6 +1,7 @@
 !.gitignore
 /tags
 *.swp
+*.Ds_Store
 *.swo
 *.swn
 *.local
