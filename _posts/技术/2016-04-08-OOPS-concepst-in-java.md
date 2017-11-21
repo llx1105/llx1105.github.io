@@ -8,7 +8,7 @@ keywords: Java oop
 
   Java中有很多面向对象的相关的概念和知识，下面边记录边学习和总结一下。
 
-## ethod Overloading
+## Method Overloading
   方法的重载：方法重载是指在一个class中允许多个方法拥有相同的名字，甚至构造方法也是。但是方法之间必须有以下区别：
 
   1. 参数的数量。
@@ -21,7 +21,7 @@ keywords: Java oop
 
 静态的多态是在编译时绑定的，也叫前期绑定。发生在编译期。
 
-## ethod Overridding
+## Method Overridding
   在Java中，子类可继承父类中的方法，而不需要重新编写相同的方法。但有时子类并不想原封不动地继承父类的方法，而是想作一定的修改，这就需要采用方法的重写。方法重写又称方法覆盖。
   for example:
 
@@ -65,7 +65,7 @@ Boy is eating
 
   6. super 调用父方法。
 
-## ifference between method Overloading and Overriding in java
+## difference between method Overloading and Overriding in java
 
 ### 态绑定和静态绑定
   在Java中，当你调用一个方法时，可能会在编译时期（compile time）解析（resolve），也可能实在运行时期（runtime）解析，这全取决于到底是一个静态方法（static method）还是一个虚方法（virtual method）。
@@ -89,7 +89,7 @@ Overloading vs Overriding in Java：
 
 4. private和final methods可以被重载但是不能被重写。
 
-## onstructors
+## constructors
 
 构造方法是一个比较特殊的方法，它没有返回类型，在new 一个对象的时候会调用，如果你没有定义，会调用一个默认的午参构造方法。
 
@@ -127,7 +127,7 @@ problem:The constructor Demo() is undefined
 
 interface没有构造方法。
 
-## rivate constructor
+## private constructor
 私有构造方法可以用来创建单例。单例模式可以保证系统中一个类只有一个实例。
 
 example:

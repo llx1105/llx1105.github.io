@@ -6,13 +6,13 @@ tags: tech
 keywords: Angularjs
 ---
 
-## 么是隔离
+## 什么是隔离
 
    AngularJS 的 directive 默认能共享父 scope 中定义的属性，例如在模版中直接使用父 scope 中的对象和属性。
 通常使用这种直接共享的方式可以实现一些简单的 directive 功能。当你需要创建一个可重复使用的 directive，只是偶尔需要访问或者修改父 scope 的数据，就需要使用隔离 scope。
 当使用隔离 scope 的时候，directive 会创建一个没有依赖父 scope 的 scope，并提供一些访问父 scope 的方式.
 
-## 什么使用隔离scope
+## 为什么使用隔离scope
 
    当想要写一个可重复使用的 directive，不能再依赖父 scope，这时候就需要使用隔离 scope 代替。共享 scope 可以直接共享父 scope，而隔离 scope 无法共享父scope。下图解释了共享 scope 和隔离 scope 的区别：
 
@@ -81,11 +81,11 @@ Say:
 
 可以看出共享 scope 允许从父 scope 渗入到 directive 中，而隔离 scope 不能，在隔离 scope 下，给 directive 创造了一堵墙，使得父 scope 无法渗入到 directive 中。
 
-## 建隔离 scope
+## 创建隔离 scope
 
 在 Directive 中创建隔离 scope 很简单，只需要定义一个 scope 属性即可，这样，这个 directive 的 scope 将会创建一个新的 scope，如果多个 directive 定义在同一个元素上，只会创建一个新的 scope。
 
-## 离 scope 与父scope交互
+## 分离scope与父scope交互
 
 directive 在使用隔离 scope 的时候，提供了三种方法同隔离之外的地方交互。这三种分别是
 
