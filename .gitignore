@@ -3,6 +3,7 @@
 *.swp
 *.swo
 *.swn
+*.local
 Gemfile.lock
 /tmp
 /tmpblog
