@@ -6,13 +6,13 @@ tags: tech
 keywords: Angularjs
 ---
 
-##什么是隔离
+## 么是隔离
 
    AngularJS 的 directive 默认能共享父 scope 中定义的属性，例如在模版中直接使用父 scope 中的对象和属性。
 通常使用这种直接共享的方式可以实现一些简单的 directive 功能。当你需要创建一个可重复使用的 directive，只是偶尔需要访问或者修改父 scope 的数据，就需要使用隔离 scope。
 当使用隔离 scope 的时候，directive 会创建一个没有依赖父 scope 的 scope，并提供一些访问父 scope 的方式.
 
-##为什么使用隔离scope
+## 什么使用隔离scope
 
    当想要写一个可重复使用的 directive，不能再依赖父 scope，这时候就需要使用隔离 scope 代替。共享 scope 可以直接共享父 scope，而隔离 scope 无法共享父scope。下图解释了共享 scope 和隔离 scope 的区别：
 
@@ -81,11 +81,11 @@ Say:
 
 可以看出共享 scope 允许从父 scope 渗入到 directive 中，而隔离 scope 不能，在隔离 scope 下，给 directive 创造了一堵墙，使得父 scope 无法渗入到 directive 中。
 
-##创建隔离 scope
+## 建隔离 scope
 
 在 Directive 中创建隔离 scope 很简单，只需要定义一个 scope 属性即可，这样，这个 directive 的 scope 将会创建一个新的 scope，如果多个 directive 定义在同一个元素上，只会创建一个新的 scope。
 
-##隔离 scope 与父scope交互
+## 离 scope 与父scope交互
 
 directive 在使用隔离 scope 的时候，提供了三种方法同隔离之外的地方交互。这三种分别是
 
@@ -93,7 +93,7 @@ directive 在使用隔离 scope 的时候，提供了三种方法同隔离之外
 & 提供一种方式执行一个表达式在父 scope 的上下文中。如果没有指定 attr 名称，则属性名称为相同的本地名称。
 = 通过 directive 的 attr 属性的值在局部 scope 的属性和父 scope 属性名之间建立双向绑定。
 
-###@ 局部 scope 属性
+###  局部 scope 属性
 
 @ 方式局部属性用来访问 directive 外部环境定义的字符串值，主要是通过 directive 所在的标签属性绑定外部字符串值。这种绑定是单向的，即父 scope 的绑定变化，
 directive 中的 scope 的属性会同步变化，而隔离 scope 中的绑定变化，父 scope 是不知道的。
@@ -134,14 +134,14 @@ html 代码：
 这里有个例子:
 [the plunker demo](http://plnkr.co/edit/0vwa72InAuAACTBKykAa)
 
-###= 局部 scope 属性
+###  局部 scope 属性
 
 = 通过 directive 的 attr 属性的值在局部 scope 的属性和父 scope 属性名之间建立双向绑定。
 意思是，当你想要一个双向绑定的属性的时候，你可以使用=来引入外部属性。无论是改变父 scope 还是隔离 scope 里的属性，父 scope 和隔离 scope 都会同时更新属性值，因为它们是双向绑定的关系。
 
 例子同上。把@改成=号即可。
 
-###& 局部 scope 属性
+###  局部 scope 属性
 
 & 方式提供一种途经是 directive 能在父 scope 的上下文中执行一个表达式。此表达式可以是一个 function。
 比如当你写了一个 directive，当用户点击按钮时，directive 想要通知 controller，controller 无法知道 directive 中发生了什么，也许你可以通过使用 angular 中的 event 广播来做到，但是必须要在 controller 中增加一个事件监听方法。
